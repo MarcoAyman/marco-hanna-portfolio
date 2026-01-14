@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Marco</title>
+    <link rel="stylesheet" href="../About/style.css">
+    <style>
+        /* Professional mini-nav style for the About page */
+        nav {
+            position: fixed;
+            top: 20px;
+            right: 40px;
+            z-index: 1000;
+        }
+        nav ul {
+            list-style: none;
+        }
+        nav ul li a {
+            color: #FFD700; /* Matching your gold border */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #FFD700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        nav ul li a:hover {
+            background: #FFD700;
+            color: #000;
+            box-shadow: 0 0 15px #FFD700;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li><a href="../home/index.html">HOME</a></li>
+        </ul>
+    </nav>
+
+    <div class="main-card">
+        
+        <section class="profile-section">
+            <div class="profile-img-container">
+                <img src="../images/pic.png" alt="Marco Profile" class="profile-pic">
+            </div>
+            <div class="profile-text">
+                <h2>Marco Hanna</h2>
+                <p>Greetings! I’m Marco, a 20-something engineer currently calling the quiet, charming city of Hildesheim, Germany, my home. My journey has been a bit of a global adventure: I am originally Egyptian, but I grew up in the fast-paced, multicultural energy of Dubai. After moving back to Egypt for my early adulthood, I eventually followed my curiosity here to Germany.</p>
+            </div>
+        </section>
+
+        <h2 class="section-header">Education</h2>
+        <section class="education-section">
+            
+            <div class="edu-card">
+                <h3 class="location-title">Dubai</h3>
+                <div class="edu-img-wrapper">
+                    <img src="../images/dubai.png" alt="Dubai">
+                </div>
+                <div class="edu-text">
+                    <p>High School Diploma (2016)</p>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <h3 class="location-title">Egypt</h3>
+                <div class="edu-img-wrapper">
+                    <img src="../images/egypt.png" alt="Egypt">
+                </div>
+                <div class="edu-text">
+                    <p>B.Sc. in Electrical Engineering (2021) <br> MSA University</p>
+                </div>
+            </div>
+
+            <div class="edu-card">
+                <h3 class="location-title">Germany</h3>
+                <div class="edu-img-wrapper">
+                    <img src="../images/germany.png" alt="Germany">
+                </div>
+                <div class="edu-text">
+                    <p>M.Sc. in Data Analytics (2025) <br> University of Hildesheim</p>
+                </div>
+            </div>
+
+        </section>
+
+        <h2 class="section-header">Personal Interests</h2>
+        <section class="interests-section">
+            <div class="interest-img">
+                <img src="../images/c.png" alt="Cooking">
+            </div>
+            <div class="interest-img">
+                <img src="../images/f.png" alt="Fitness">
+            </div>
+            <div class="interest-img">
+                <img src="../images/n.png" alt="Nature">
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="../About/script.js"></script>
+</body>
+</html>

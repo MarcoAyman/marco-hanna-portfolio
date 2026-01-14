@@ -1,0 +1,473 @@
+/* 1. Global Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0d0d0d; /* Deep dark background preserved from Project A */
+    color: white;
+    overflow-x: hidden; 
+}
+
+/* 2. Navigation Bar */
+header {
+    height: 60px;
+    padding: 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%; 
+    top: 0; 
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.3); 
+    border-radius: 0; 
+}
+
+/* Left Side: Branding */
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.mh-badge {
+    background-color: #00ffff;
+    color: #1a3a8a; 
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 800;
+    font-size: 0.8rem;
+}
+
+.logo {
+    color: #00ffff;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Right Side: Navigation Links */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+nav a {
+    color: #00ffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.7;
+}
+
+/* 3. Hero Section layout */
+.hero {
+    min-height: 100vh;
+    /* Ensure you have your image or keep the gradient */
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                url('../images/neural.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10%;
+    padding: 120px 5% 50px 5%;
+}
+
+/* LEFT SIDE: Text & Tags */
+.hero-content {
+    flex: 1; 
+    max-width: 800px; /* Increased slightly to fit the new larger Hex grid */
+    margin-left: -50px;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+/* =========================================
+   INTEGRATED HONEYCOMB STYLES (FROM STYLE B)
+   ========================================= */
+
+/* Wrapper now uses Flex instead of Grid */
+.skills-grid {
+    display: flex;
+    padding: 20px; /* Reduced slightly from 80px to fit Split Screen layout */
+    justify-content: center; /* Center the cluster in the left column */
+}
+
+/* Columns */
+.honey-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: -34px; /* Tighter overlap for larger hexes */
+}
+
+/* Vertical offset for honeycomb locking */
+.honey-col:nth-child(even) {
+    margin-top: 72px;
+}
+
+/* Hex Cell */
+.hex {
+    width: 90px;          /* Size from Style B */
+    height: 100px;
+    background: #00ffff;
+    clip-path: polygon(
+        50% 0%, 
+        100% 25%, 
+        100% 75%, 
+        50% 100%, 
+        0% 75%, 
+        0% 25%
+    );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 8px;
+
+    /* GPU / clarity fixes */
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+
+    /* Animation */
+    animation: wave 4s ease-in-out infinite;
+
+    /* Smooth interaction */
+    transition: 
+        transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2),
+        filter 0.3s ease;
+}
+
+/* Inner Hex Border */
+.hex::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    background: linear-gradient(135deg, #4a86e8 0%, #1a3a8a 100%);
+    clip-path: inherit;
+    z-index: 1;
+}
+
+/* Text */
+.hex span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-weight: 800;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 10px;
+    line-height: 1.5;
+    pointer-events: none;
+    text-transform: uppercase; /* Added to match Style A text style */
+}
+
+/* Hover Zoom */
+.hex:hover {
+    z-index: 100;
+    animation: none; 
+    transform: scale(1.18) translateY(-6px);
+    filter: drop-shadow(0 0 26px #00ffff);
+    cursor: pointer;
+}
+
+/* Column Wave Delay */
+.honey-col:nth-child(1) .hex { animation-delay: 0s; }
+.honey-col:nth-child(2) .hex { animation-delay: 0.2s; }
+.honey-col:nth-child(3) .hex { animation-delay: 0.4s; }
+.honey-col:nth-child(4) .hex { animation-delay: 0.6s; }
+.honey-col:nth-child(5) .hex { animation-delay: 0.8s; }
+.honey-col:nth-child(6) .hex { animation-delay: 1s; }
+
+/* Wave Animation */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* =========================================
+   END HONEYCOMB STYLES
+   ========================================= */
+
+/* RIGHT SIDE: Experience Grid */
+.experience-grid {
+    flex: 1; 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    max-width: 700px;
+}
+
+.card {
+    background: rgba(40, 40, 40, 0.4); 
+    backdrop-filter: blur(10px);      
+    border: 0px solid rgba(0, 255, 255, 0.1);
+    border-bottom: 3px solid #00d2ff; 
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: background 0.3s ease, border-color 0.3s ease; 
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+.card:hover {
+    transform: translateY(-5px); 
+    background: linear-gradient(135deg, #9ca1ad 0%, #154fcb 100%);
+}
+
+.card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+    color: #00008B;
+}
+
+.role {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.sub-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.sub-tags span {
+    background:  #00ffff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #00008B;
+    font-weight: bold; 
+}
+
+
+/* 4. Certificates Section - Professional Glassmorphism */
+.certificates {
+    width: 100%;
+    height: 100px; /* Increased height for better presence */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* 1. FORCE THE OVERLAP: Pull the footer up so it sits over the 'flipped.png' background */
+    margin-top: -100px; 
+    
+    /* 2. THE GLASS: Use high transparency and strong blur */
+    background: rgba(0, 0, 0, 0.2); /* Very light dark tint */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px); /* Safari Support */
+    
+    /* 3. SHARP EDGES: A neon-glow top border */
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    
+    /* 4. STACKING: Ensure it sits on top of the section above it */
+    position: relative;
+    z-index: 20; 
+}
+
+.cert-logos {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 50px;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cert-logos img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    /* filter: brightness(0) invert(1); Ensures logos are crisp white on the glass */
+    opacity: 0.8;
+    transition: all 0.5s ease;
+}
+
+.cert-logos img:hover {
+    transform: scale(1.5);
+    opacity: 1;
+    filter: none; /* Shows original colors on hover */
+}
+
+/* Responsive: Mobile Fix */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column; 
+        text-align: center;
+        padding-top: 100px;
+        overflow-x: hidden; /* Prevent horizontal scroll from large hexes */
+    }
+    
+    .skills-grid {
+        transform: scale(0.7); /* Scale down the hex grid for mobile */
+        margin-left: -20px;
+        padding: 0;
+        margin-bottom: 40px;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr; 
+        width: 100%;
+    }
+    
+    nav { display: none; }
+}
+
+/* Mobile Touch Fix (From Style B) */
+@media (hover: none) {
+    .hex:active {
+        animation: none;
+        transform: scale(1.15) translateY(-8px);
+    }
+}
+
+
+/* =========================================
+   PART 2: IMPACT SECTION (SCROLL DOWN)
+   ========================================= */
+.impact-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: url('../images/flipped.png') no-repeat center center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+    padding: 100px 10% 150px 10%; /* Added 150px bottom padding to act as a 'buffer' */
+    z-index: 5;
+}
+
+/* Container for Image + Text pair */
+.impact-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
+}
+
+/* --- The Images --- */
+.img-container {
+    width: 200px;  
+    height: 200px;
+    flex-shrink: 0; /* Prevents shrinking on small screens */
+    position: relative;
+    z-index: 2; /* Ensures image sits ON TOP of the text box */
+    
+    /* Neon Glow effect */
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Specific shapes requested */
+.img-container.circle, 
+.img-container.circle img {
+    border-radius: 50%; /* Circular */
+}
+
+.img-container.rounded, 
+.img-container.rounded img {
+    border-radius: 25px; /* Rounded Rectangle */
+}
+
+/* --- The Sticked Text Box --- */
+.text-box {
+    position: relative;
+    height: 140px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    /* Glassmorphism Background */
+    background: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    
+    /* The "Sticked" Magic */
+    margin-left: -40px; /* Pulls text box LEFT to tuck under image */
+    padding-left: 60px; /* Pushes text RIGHT so it's not hidden by image */
+    padding-right: 40px;
+    z-index: 1; /* Sits BEHIND the image */
+    
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Hover Effect for interaction */
+.impact-row:hover .text-box {
+    border-color: #00ffff;
+    transform: translateX(10px); /* Slight slide out on hover */
+}
+
+/* --- Typography --- */
+.cyan-title {
+    color: #00ffff;
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+}
+
+.white-text {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Mobile Responsiveness for Part 2 */
+@media (max-width: 768px) {
+    .impact-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .text-box {
+        margin-left: 0; /* Remove overlap on mobile */
+        padding-left: 30px;
+        width: 100%;
+        height: auto;
+        padding: 30px;
+    }
+}
