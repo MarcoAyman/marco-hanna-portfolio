@@ -471,3 +471,36 @@ nav a:hover {
         padding: 30px;
     }
 }
+
+
+/* --- Mobile Responsive Navigation --- */
+@media (max-width: 768px) {
+    header {
+        padding: 0 20px;
+        height: auto;
+        flex-direction: column; /* Stack logo and nav vertically */
+        padding-top: 10px;
+        background: rgba(0, 0, 0, 0.9); /* Darker background for mobile readability */
+    }
+
+    .logo-container {
+        margin-bottom: 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-wrap: wrap; /* Allow links to wrap to a second line if needed */
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem; /* Slightly smaller text for small screens */
+    }
+
+    /* Adjust the Hero section so it doesn't hit the new larger header */
+    .hero {
+        padding-top: 120px; 
+    }
+}
