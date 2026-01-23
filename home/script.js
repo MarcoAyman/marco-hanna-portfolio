@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
     // 1. Smooth Scroll for Navigation
-    // This ensures that clicking nav links scrolls smoothly to the section
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -18,58 +17,77 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. Professional 3D Tilt & Interaction Logic
-    // Targets all cards (Master, Bachelor, Bosch, Halocline)
+    // 2. Interaction Logic for Cards
     const cards = document.querySelectorAll('.card');
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left; // x position within the element
-            const y = e.clientY - rect.top;  // y position within the element
-            
-            // Calculate tilt constants
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            // rotateX is based on vertical mouse position
-            // rotateY is based on horizontal mouse position
-            const rotateX = ((y - centerY) / centerY) * -15; 
-            const rotateY = ((x - centerX) / centerX) * 15;
+    if (!isMobile) {
+        // DESKTOP: 3D Tilt & Lift Interaction
+        cards.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -15; 
+                const rotateY = ((x - centerX) / centerX) * 15;
 
-            // Apply 3D Tilt and a subtle "Lift" (scale) to signal clickability
-            gsap.to(card, {
-                duration: 0.5,
-                rotateX: rotateX,
-                rotateY: rotateY,
-                scale: 1.03, // Subtle zoom-in when hovering
-                transformPerspective: 1000,
-                ease: "power2.out",
-                overwrite: true
+                gsap.to(card, {
+                    duration: 0.5,
+                    rotateX: rotateX,
+                    rotateY: rotateY,
+                    scale: 1.03, // Subtle lift
+                    transformPerspective: 1000,
+                    ease: "power2.out",
+                    overwrite: true
+                });
+            });
+
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    duration: 0.7,
+                    rotateX: 0,
+                    rotateY: 0,
+                    scale: 1,
+                    ease: "elastic.out(1, 0.3)",
+                    overwrite: true
+                });
+            });
+
+            // Handle card click (opens the internal <a> link)
+            card.addEventListener('click', () => {
+                const link = card.querySelector('a');
+                if (link) link.click();
             });
         });
+    } else {
+        // MOBILE: Touch Feedback (Scale down on press)
+        cards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                gsap.to(card, { 
+                    scale: 0.98, 
+                    duration: 0.1,
+                    overwrite: true 
+                });
+            });
 
-        // Reset position and scale when mouse leaves
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card, {
-                duration: 0.7,
-                rotateX: 0,
-                rotateY: 0,
-                scale: 1, // Reset zoom
-                ease: "elastic.out(1, 0.3)", // Professional bouncy reset
-                overwrite: true
+            card.addEventListener('touchend', () => {
+                gsap.to(card, { 
+                    scale: 1, 
+                    duration: 0.3, 
+                    ease: "power2.out",
+                    overwrite: true 
+                });
+            });
+
+            // Ensure the click still works on mobile
+            card.addEventListener('click', () => {
+                const link = card.querySelector('a');
+                if (link) link.click();
             });
         });
-
-        // 3. Click Logic for GitHub Redirection
-        // Even though we added <a> tags in HTML, this ensures 
-        // the entire card area responds to the click professionally.
-        card.addEventListener('click', () => {
-            const link = card.querySelector('a');
-            if (link) {
-                // Trigger the click on the internal anchor tag
-                link.click();
-            }
-        });
-    });
+    }
 });

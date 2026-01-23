@@ -321,39 +321,6 @@ nav a:hover {
     filter: none; /* Shows original colors on hover */
 }
 
-/* Responsive: Mobile Fix */
-@media (max-width: 900px) {
-    .hero {
-        flex-direction: column; 
-        text-align: center;
-        padding-top: 100px;
-        overflow-x: hidden; /* Prevent horizontal scroll from large hexes */
-    }
-    
-    .skills-grid {
-        transform: scale(0.7); /* Scale down the hex grid for mobile */
-        margin-left: -20px;
-        padding: 0;
-        margin-bottom: 40px;
-    }
-
-    .experience-grid {
-        grid-template-columns: 1fr; 
-        width: 100%;
-    }
-    
-    nav { display: none; }
-}
-
-/* Mobile Touch Fix (From Style B) */
-@media (hover: none) {
-    .hex:active {
-        animation: none;
-        transform: scale(1.15) translateY(-8px);
-    }
-}
-
-
 /* =========================================
    PART 2: IMPACT SECTION (SCROLL DOWN)
    ========================================= */
@@ -453,23 +420,6 @@ nav a:hover {
     font-size: 1.5rem;
     font-weight: 600;
     line-height: 1.2;
-}
-
-/* Mobile Responsiveness for Part 2 */
-@media (max-width: 768px) {
-    .impact-row {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-    
-    .text-box {
-        margin-left: 0; /* Remove overlap on mobile */
-        padding-left: 30px;
-        width: 100%;
-        height: auto;
-        padding: 30px;
-    }
 }
 
 /* =========================================
@@ -750,4 +700,82 @@ nav a:hover {
 
 .card:hover {
     cursor: pointer; /* Shows the hand icon so users know it's clickable */
+}
+
+
+
+
+
+
+/* =========================================
+   FINAL UNIFIED MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    /* 1. Header & Navigation */
+    header {
+        padding: 0 15px;
+    }
+    nav ul {
+        gap: 10px;
+    }
+    nav ul li a {
+        font-size: 0.65rem;
+    }
+
+    /* 2. Hero Section (Hexagon Grid) */
+    .hero {
+        flex-direction: column; 
+        text-align: center;
+        padding-top: 80px;
+    }
+    
+    .skills-grid {
+        transform: scale(0.65); /* Keeps honeycomb readable on small screens */
+        margin-bottom: 20px;
+    }
+
+    /* 3. Experience Section (Thesis Cards) */
+    .experience-cards {
+        flex-direction: column; /* Stacks the Master and Bachelor cards */
+        align-items: center;
+        gap: 25px;
+        padding: 0 10px;
+    }
+
+    .card {
+        width: 100%;
+        max-width: 380px;
+        transform: none !important; /* Disables 3D tilt for smooth mobile scrolling */
+    }
+
+    .thesis-main-label {
+        font-size: 1.1rem !important;
+    }
+
+    .one-line-title {
+        white-space: normal; /* Allows title to wrap if the phone is very narrow */
+        font-size: 0.8rem !important;
+    }
+
+    /* 4. Impact Section (Brain & Action) */
+    .impact-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .text-box {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* 5. Touch Improvements */
+    .thesis-img-wrapper img, .main-rcnn {
+        opacity: 0.9 !important; /* Clearer images for touch users */
+    }
+    
+    .hex:active {
+        transform: scale(1.1); /* Simple feedback for touching skills */
+    }
 }
