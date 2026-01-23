@@ -550,22 +550,19 @@ nav a:hover {
 /* --- Update 1: Reduce Title Distance --- */
 .thesis-main-label {
     margin-top: 0 !important;
-    margin-bottom: 0 !important; /* Eliminates gap to title below */
+    margin-bottom: 8px !important; /* Fixed space for both cards */
     font-size: 1.3rem;
     color: #00008B;
+    line-height: 1.2;
 }
 
 .one-line-title {
-    /* REDUCED: Negative margin pulls subtitle UP toward 'Master Thesis' */
-    margin-top: -5px !important; 
-    /* REDUCED: Pulls the image grid UP toward the subtitle */
-    margin-bottom: 2px !important; 
+    margin-top: 0 !important;
+    margin-bottom: 15px !important; /* Equal distance from title to the images */
     font-size: 0.85rem;
     color: #ffd700;
     font-weight: 600;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    height: 1.2rem; /* Forces both subtitles to take up the same vertical height */
 }
 
 /* Show the overlay when the card is hovered */
@@ -615,4 +612,142 @@ nav a:hover {
 /* Specific Shadow for the Toggle Button (b.png) */
 .toggle-btn {
     filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+}
+
+/* --- Bachelor Thesis Card Styling --- */
+.bachelor-card {
+    display: flex;
+    flex-direction: column;
+    gap: 8px !important; 
+    background: rgba(40, 40, 40, 0.3) !important; /* Transparency for background */
+
+}
+
+/* 3-Column Grid for Bachelor Images */
+.bachelor-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns for w1, w2, w3 */
+    gap: 10px;
+    padding: 0px 5px 5px 5px;
+}
+
+.bachelor-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Square look for the top 3 images */
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.bachelor-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7; /* Transparency as requested */
+}
+
+/* RCNN Container Spanning 3 Columns */
+.rcnn-container {
+    grid-column: span 3; /* Spans from start of w1 to end of w3 */
+    position: relative;
+    width: 100%;
+    aspect-ratio: 21 / 9; /* Wider aspect for the RCNN row */
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+    border: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+.main-rcnn {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+}
+
+/* bb.png Positioned Center-Right on rcnn.png */
+.bb-toggle-btn {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    /* Size is 1/8 of the small w1/w2/w3 images */
+    width: calc(100% / 3 / 8); 
+    min-width: 15px;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.8));
+}
+
+/* Restore Glow Effect on Hover */
+.bachelor-card:hover {
+    background: linear-gradient(135deg, #9ca1ad 0%, #154fcb 100%) !important;
+    border-color: #00ffff !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+}
+
+.bachelor-card:hover img {
+    opacity: 1;
+}
+
+/* --- Professional Equal Height Solution --- */
+
+/* 1. Target the existing container to force equal height on children */
+.experience-cards {
+    display: flex;
+    align-items: stretch; /* Forces both cards to have the same physical height */
+    gap: 20px;
+}
+
+/* 2. Adjust Master Thesis card to fill its space */
+.thesis-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Spreads title and images to fill the height */
+    height: 100%; 
+    padding-bottom: 15px !important;
+}
+
+/* 3. Make the image grid expand to take up the "empty" space */
+.thesis-card .thesis-visual-grid {
+    flex-grow: 1; /* This makes the grid stretch to fill the card */
+    display: grid;
+    align-content: center; /* Centers the images within that new stretched space */
+}
+
+.thesis-card .thesis-img-wrapper {
+    aspect-ratio: 16 / 11; /* Slightly taller ratio to fill the space elegantly */
+}
+
+/* 4. Ensure Bachelor card also follows the flex rules */
+.bachelor-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+/* --- Bachelor Thesis: 3+1 Layout --- */
+.bachelor-visual-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding: 10px 5px 5px 5px; /* Matches the 10px push of the Master card */
+}
+
+.bachelor-card .bachelor-img-wrapper {
+    aspect-ratio: 1 / 1;
+}
+
+/* Makes the anchor tag behave like a block container */
+.card-link-wrapper {
+    text-decoration: none; /* Removes underline */
+    color: inherit;        /* Keeps your professional colors */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.card:hover {
+    cursor: pointer; /* Shows the hand icon so users know it's clickable */
 }

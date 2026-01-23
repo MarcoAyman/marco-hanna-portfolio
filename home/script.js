@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // 1. Smooth Scroll for Navigation (Kept for functionality)
+    // 1. Smooth Scroll for Navigation
+    // This ensures that clicking nav links scrolls smoothly to the section
     document.querySelectorAll('nav a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -17,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // 2. Subtle 3D Tilt Effect for Cards
+    // 2. Professional 3D Tilt & Interaction Logic
+    // Targets all cards (Master, Bachelor, Bosch, Halocline)
     const cards = document.querySelectorAll('.card');
 
     cards.forEach(card => {
@@ -26,31 +28,48 @@ document.addEventListener("DOMContentLoaded", () => {
             const x = e.clientX - rect.left; // x position within the element
             const y = e.clientY - rect.top;  // y position within the element
             
-            // Calculate tilt (max 10 degrees for subtlety)
+            // Calculate tilt constants
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -20; 
-            const rotateY = ((x - centerX) / centerX) * 20;
+            
+            // rotateX is based on vertical mouse position
+            // rotateY is based on horizontal mouse position
+            const rotateX = ((y - centerY) / centerY) * -15; 
+            const rotateY = ((x - centerX) / centerX) * 15;
 
+            // Apply 3D Tilt and a subtle "Lift" (scale) to signal clickability
             gsap.to(card, {
                 duration: 0.5,
                 rotateX: rotateX,
                 rotateY: rotateY,
+                scale: 1.03, // Subtle zoom-in when hovering
                 transformPerspective: 1000,
                 ease: "power2.out",
                 overwrite: true
             });
         });
 
-        // Reset position when mouse leaves
+        // Reset position and scale when mouse leaves
         card.addEventListener('mouseleave', () => {
             gsap.to(card, {
                 duration: 0.7,
                 rotateX: 0,
                 rotateY: 0,
-                ease: "elastic.out(1, 0.3)",
+                scale: 1, // Reset zoom
+                ease: "elastic.out(1, 0.3)", // Professional bouncy reset
                 overwrite: true
             });
+        });
+
+        // 3. Click Logic for GitHub Redirection
+        // Even though we added <a> tags in HTML, this ensures 
+        // the entire card area responds to the click professionally.
+        card.addEventListener('click', () => {
+            const link = card.querySelector('a');
+            if (link) {
+                // Trigger the click on the internal anchor tag
+                link.click();
+            }
         });
     });
 });
