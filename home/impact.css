@@ -1,0 +1,51 @@
+/* =========================================
+   7. IMPACT & CERTIFICATES
+   ========================================= */
+.impact-section {
+    min-height: 100vh;
+    background: url('../images/flipped.png') no-repeat center center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 80px;
+    padding: 100px 10%;
+}
+
+.impact-row { display: flex; align-items: center; max-width: 900px; }
+
+.img-container {
+    width: 200px; height: 200px;
+    flex-shrink: 0;
+    z-index: 2;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+}
+
+.img-container img { width: 100%; height: 100%; object-fit: cover; }
+.img-container.circle, .img-container.circle img { border-radius: 50%; }
+.img-container.rounded, .img-container.rounded img { border-radius: 25px; }
+
+.text-box {
+    background: rgba(15, 23, 42, 0.6); 
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 20px;
+    margin-left: -40px;
+    padding: 20px 40px 20px 60px;
+    z-index: 1;
+}
+
+.cyan-title { color: #00ffff; font-size: 1.4rem; margin-bottom: 5px; }
+.white-text { color: white; font-size: 1.5rem; font-weight: 600; }
+
+.certificates {
+    width: 100%; height: 100px;
+    margin-top: -100px;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid rgba(0, 255, 255, 0.3);
+    display: flex; align-items: center; justify-content: center;
+}
+
+.cert-logos { display: flex; justify-content: space-evenly; gap: 30px; width: 100%; padding: 0 50px; }
+.cert-logos img { height: 45px; opacity: 0.8; transition: all 0.5s ease; }
+.cert-logos img:hover { transform: scale(1.5); opacity: 1; }

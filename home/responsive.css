@@ -1,0 +1,18 @@
+/* =========================================
+   8. MOBILE RESPONSIVENESS
+   ========================================= */
+@media (max-width: 768px) {
+    header { padding: 0 15px; }
+    nav ul { gap: 10px; }
+    nav a { font-size: 0.65rem; }
+
+    .hero { flex-direction: column; text-align: center; }
+    .skills-grid { transform: scale(0.65); margin-bottom: 20px; }
+
+    .experience-grid { grid-template-columns: 1fr; }
+    .experience-content { flex-direction: column; }
+    .exp-tags-vertical span { font-size: 0.8rem; }
+
+    .impact-row { flex-direction: column; text-align: center; }
+    .text-box { margin-left: 0; padding: 20px; }
+}

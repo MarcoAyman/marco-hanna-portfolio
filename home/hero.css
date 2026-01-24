@@ -1,0 +1,27 @@
+/* 3. Hero Section layout Contains the top section layout and main title.*/
+.hero {
+    min-height: 100vh;
+    /* Ensure you have your image or keep the gradient */
+    background: linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.3)), 
+                url('../images/neural.png') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10%;
+    padding: 120px 5% 50px 5%;
+}
+
+/* LEFT SIDE: Text & Tags */
+.hero-content {
+    flex: 1; 
+    max-width: 800px; /* Increased slightly to fit the new larger Hex grid */
+    margin-left: -50px;
+}
+
+.hero-content h1 {
+    font-size: 3.8rem;
+    line-height: 1.1;
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 0 0 20px rgba(0,0,0,0.8);
+}

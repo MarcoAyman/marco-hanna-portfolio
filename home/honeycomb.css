@@ -1,0 +1,95 @@
+/* =========================================
+   INTEGRATED HONEYCOMB STYLES (FROM STYLE B) Contains the complex Hexagon grid and animations.
+   ========================================= */
+
+/* Wrapper now uses Flex instead of Grid */
+.skills-grid {
+    display: flex;
+    padding: 20px; /* Reduced slightly from 80px to fit Split Screen layout */
+    justify-content: center; /* Center the cluster in the left column */
+}
+
+/* Columns */
+.honey-col {
+    display: flex;
+    flex-direction: column;
+    margin-left: -34px; /* Tighter overlap for larger hexes */
+}
+
+/* Vertical offset for honeycomb locking */
+.honey-col:nth-child(even) {
+    margin-top: 72px;
+}
+
+/* Hex Cell */
+.hex {
+    width: 90px;
+    height: 100px;
+    background: rgba(0, 255, 255, 0.3); /* MODIFIED: Added transparency to outer border */
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 8px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    will-change: transform;
+    -webkit-font-smoothing: antialiased;
+    animation: wave 4s ease-in-out infinite;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.2), filter 0.3s ease;
+}
+
+.hex::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    /* MODIFIED: Added rgba transparency to the inner gradient */
+    background: linear-gradient(135deg, rgba(74, 134, 232, 0.5) 0%, rgba(26, 58, 138, 0.7) 100%);
+    clip-path: inherit;
+    z-index: 1;
+}
+
+.hex span {
+    position: relative;
+    z-index: 2;
+    color: white;
+    font-weight: 900;
+    /* MODIFIED: Reduced font-size slightly and added line-height for long words */
+    font-size: 0.9rem; 
+    text-align: center;
+    padding: 5px; 
+    line-height: 1.1;
+    pointer-events: none;
+    text-transform: uppercase;
+    /* FIX: Ensures long words break if necessary */
+    word-wrap: break-word;
+    width: 80%; 
+}
+
+/* Hover Zoom */
+.hex:hover {
+    z-index: 100;
+    animation: none; 
+    transform: scale(1.18) translateY(-6px);
+    filter: drop-shadow(0 0 26px #00ffff);
+    cursor: pointer;
+}
+
+/* Column Wave Delay */
+.honey-col:nth-child(1) .hex { animation-delay: 0s; }
+.honey-col:nth-child(2) .hex { animation-delay: 0.2s; }
+.honey-col:nth-child(3) .hex { animation-delay: 0.4s; }
+.honey-col:nth-child(4) .hex { animation-delay: 0.6s; }
+.honey-col:nth-child(5) .hex { animation-delay: 0.8s; }
+.honey-col:nth-child(6) .hex { animation-delay: 1s; }
+
+/* Wave Animation */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
