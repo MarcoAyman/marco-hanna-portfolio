@@ -1,0 +1,37 @@
+/* Mobile Responsive Styles for Contact Page */
+
+@media (max-width: 768px) {
+    /* 1. Scale down the center hub */
+    .center-circle {
+        width: 180px; /* Smaller Earth for mobile */
+    }
+
+    /* 2. Shrink Hexagons and Icons */
+    .hexagon {
+        width: 70px;
+        height: 80px;
+    }
+
+    .hexagon i {
+        font-size: 1.5rem;
+    }
+
+    /* 3. Adjust Text Size and Spacing */
+    .node-text p, 
+    .node-text a {
+        font-size: 0.85rem; /* Smaller text for narrow screens */
+        max-width: 150px;   /* Prevents long emails from breaking layout */
+        word-wrap: break-word;
+    }
+
+    /* 4. Navigation adjustment */
+    .top-nav {
+        top: 15px;
+        right: 15px;
+    }
+
+    .top-nav ul li a {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+    }
+}
