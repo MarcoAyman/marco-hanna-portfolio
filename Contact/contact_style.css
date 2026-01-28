@@ -1,0 +1,88 @@
+.contact-body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../images/earth.jpg') no-repeat center center/cover;
+    overflow: hidden;
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.contact-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-hub {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+
+.center-circle {
+    width: 250px;
+    opacity: 0.9;
+}
+
+.blinking {
+    animation: blink-animation 2s infinite ease-in-out;
+}
+
+@keyframes blink-animation {
+    0%, 100% { opacity: 0.9; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.05); }
+}
+
+.item-wrapper {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    /* This handles the wave for the whole unit */
+    animation: contact-wave 3s infinite ease-in-out;
+}
+
+.hexagon {
+    width: 100px;
+    height: 110px;
+    background: radial-gradient(circle, #001a33 0%, #000d1a 100%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border: 1px solid rgba(0, 255, 255, 0.5);
+}
+
+.hexagon i {
+    font-size: 2.5rem;
+    color: #00ffff;
+}
+
+/* Dark Blue Extra Bold Text */
+.node-text {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.node-text p, 
+.node-text a {
+    color: #d3d3da !important; 
+    font-weight: 900 !important;
+    font-size: 1.1rem;
+    text-decoration: none;
+    margin: 4px 0;
+    display: block;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+@keyframes contact-wave {
+    0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+    50% { transform: translate(-50%, -50%) translateY(-20px); }
+}
