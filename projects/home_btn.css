@@ -1,0 +1,23 @@
+.home-nav {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    z-index: 1000;
+}
+
+.home-btn {
+    text-decoration: none;
+    padding: 12px 35px;
+    background: radial-gradient(circle, #2b4b7c 0%, #1a2a44 100%);
+    border: 4px solid #00ffff;
+    border-radius: 12px;
+    color: #00ffff;
+    font-weight: 900;
+    box-shadow: 0 0 15px #00ffff;
+    transition: 0.3s;
+}
+
+.home-btn:hover {
+    box-shadow: 0 0 30px #00ffff;
+    transform: scale(1.1);
+}
