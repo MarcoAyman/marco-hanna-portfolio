@@ -1,0 +1,172 @@
+#project-3.project-card {
+    width: 90%;
+    height: 90%;
+    min-height: 450px;
+    background: radial-gradient(circle, rgba(43, 75, 124, 0.4) 0%, rgba(26, 42, 68, 0.3) 100%);
+    backdrop-filter: blur(15px);
+    border: 5px solid #00ffff;
+    border-radius: 60px; /* Extra rounded as per image */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+    position: relative; /* Required for the glow positioning */
+    overflow: hidden;
+    transition: box-shadow 0.5s ease;
+}
+
+/* Header Styles */
+.card-header-ml {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.card-title-ml {
+color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;    font-size: 1.6rem;
+    line-height: 1.1;
+    margin: 0;
+    
+}
+
+.uni-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;    border: 2px solid #00ffff;
+    padding: 5px 15px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold; /* This makes the entire subtitle bold */
+
+}
+
+.uni-logo { width: 40px; height: auto; }
+
+/* Central Glassy Image Area */
+.glass-content-area {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.center-rob-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+
+    /* 1. This makes the image see-through */
+    opacity: 0.8; 
+
+    /* 2. This blurs whatever is BEHIND the image */
+    backdrop-filter: blur(15px); 
+    
+    /* 3. Optional: adds a slight white tint to simulate glass */
+    background: rgba(255, 255, 255, 0.05); 
+}
+
+.description-overlay {
+    position: absolute;
+    background: rgba(13, 33, 64, 0.8); /* Dark glassy box */
+    backdrop-filter: blur(5px);
+    padding: 15px;
+    border-radius: 10px;
+    width: 85%;
+    color: rgb(255, 255, 255);
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Tech Stack Pills (Glassy) */
+.tech-stack-ml {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.tech-pill-glass {
+    border: 2px solid #00ffff;
+    background: rgba(0, 255, 255, 0.1);
+    color: white;
+    padding: 3px 3px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Bottom Buttons */
+.action-row-ml {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+    font-weight: bold;
+
+}
+
+.action-btn-ml {
+    text-decoration: none;
+    color: white;
+    border: 2px solid #00ffff;
+    padding: 3px 3px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(43, 75, 124, 0.5);
+    transition: 0.3s;
+}
+
+.btn-icon { width: 16px; }
+
+.msc-pill {
+    border-radius: 30px; /* More rounded for M.Sc. link */
+}
+
+.action-btn-ml:hover {
+    background: #00ffff;
+    color: #1a2a44;
+    box-shadow: 0 0 15px #00ffff;
+}
+
+/* Make the internal elements "pop" out slightly */
+#project-3 .description-overlay {
+    transform: translateZ(50px); /* Lifts the text box above the image */
+}
+
+#project-3 .card-title-ml {
+    transform: translateZ(30px);
+}
+
+/* The Aurora Glow Element */
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none; /* Mouse can click through it */
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1; /* Sits behind text/images if they have higher z-index */
+}
+
+#project-3:hover .card-glow {
+    opacity: 1;
+}

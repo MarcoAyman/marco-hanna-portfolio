@@ -7,6 +7,20 @@ const projects = [
         htmlFile: 'llm_card.html',
         cssFile: 'llm_card_main.css',
         jsFile: 'llm_card_script.js'
+    },
+    {
+        id: 'project-2',
+        folder: 'sales_intelligence', // The new folder
+        htmlFile: 'sales_card.html',
+        cssFile: 'sales_card_main.css',
+        jsFile: 'sales_card_script.js'
+    },
+    {
+        id: 'project-3',
+        folder: 'ml_alg', // The new folder
+        htmlFile: 'ml_card_index.html',
+        cssFile: 'ml_card_style.css',
+        jsFile: 'ml_card_anim.js'
     }
     // Add future projects here: { id: 'project-2', folder: 'Robot_card', ... }
 ];

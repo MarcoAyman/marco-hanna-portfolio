@@ -1,43 +1,44 @@
-/* Isolated Shell Styles for Project 1 */
 #project-1.project-card {
-    /* SETTING: 75%-80% Transparency with Glassmorphism */
     background: radial-gradient(circle, rgba(43, 75, 124, 0.25) 0%, rgba(26, 42, 68, 0.2) 100%);
     backdrop-filter: blur(12px); 
     -webkit-backdrop-filter: blur(12px);
     
-    /* SETTING: Landscape & Grid Positioning */
-    grid-column: span 2; 
-    width: 40%;
-    max-width: 1000px;
-    height: auto; 
-    min-height: 450px; /* Maintains the landscape shape */
+    /* GRID FIX: Remove fixed width and spanning */
+    width: 95%; 
+    height: 95%;      
     
-    /* Aesthetics */
     border: 5px solid #00ffff;
     border-radius: 40px;
-    padding: 35px;
     box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
-    position: relative;
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Aligns buttons at the bottom */
+    padding: 10px 25px 25px 25px;   
+    box-sizing: border-box; 
     overflow: visible;
-    padding: 20px;
-    padding-bottom: 10px; /* Extra breathing room at the bottom */
-}
 
+    --neon-color: #00ffff; /* Default Cyan */
+    border: 5px solid var(--neon-color);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    transition: all 0.2s ease-in-out; /* Fast transition for the 'blink' */
+}
 /* Typography Adjustments for Landscape Layout */
 #project-1 .card-title {
     color: #00ffff;
     text-shadow: 0 0 10px #00ffff;
     text-align: center;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 #project-1 .card-subtitle {
-    color:  #d1d1d1;
+    color:  #f9f9f9;
     text-align: center;
     font-size: 1.1rem;
-    margin-bottom: 25px;
+    margin-bottom: 5px;
+    margin-top: 5px;
     font-weight: bold; /* This makes the entire subtitle bold */
 }
 
@@ -47,7 +48,7 @@
     align-items: center;
     justify-content: center;
     gap: 30px;
-    margin: 30px;
+    
 }
 
 #project-1 .result-img {
@@ -67,8 +68,9 @@
     display: flex;
     justify-content: center;
     gap: 5px;
-    margin-top: 10px;
     flex-wrap: wrap;
+    margin-bottom: 5px;
+    margin-top: 5px;
 }
 
 #project-1 .tech-item, 
@@ -76,15 +78,17 @@
     background: rgba(0, 31, 63, 0.4);
     border: 2px solid #00ffff;
     border-radius: 12px;
-    padding: 8px 18px;
+    padding: 3px 3px;
     color: white;
-    font-size: 0.85rem;
+    /* font-size: 0.85rem; */
     font-weight: bold;
     display: flex;
     align-items: center;
     gap: 1px;
     text-decoration: none;
-    transition: background 0.3s, color 0.3s;
+    transition:  0.3;
+    
+
 }
 
 #project-1 .tech-item img { width: 22px; }
@@ -92,4 +96,30 @@
 #project-1 .action-btn:hover {
     background: #00ffff;
     color: #1a2a44;
+}
+
+#project-1.project-card {
+    /* ... keep your existing base styles ... */
+    --neon-color: #00ffff; /* Default Cyan */
+    border: 5px solid var(--neon-color);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+    transition: all 0.2s ease-in-out; /* Fast transition for the 'blink' */
+}
+
+/* The 'Blink' Animation */
+@keyframes neon-flash {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5); --neon-color: #ff00ff; } /* Pink Flash */
+    100% { filter: brightness(1.2); --neon-color: #00ffff; } /* Back to Cyan */
+}
+
+#project-1.project-card.active-blink {
+    animation: neon-flash 0.4s ease-out;
+    box-shadow: 0 0 50px var(--neon-color);
+}
+
+/* Ensure child elements use the variable */
+#project-1 .card-title {
+    color: var(--neon-color);
+    text-shadow: 0 0 10px var(--neon-color);
 }

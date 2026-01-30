@@ -8,19 +8,20 @@
                 url('../images/nn.png') no-repeat center center/cover fixed;
     display: flex;
     justify-content: center;
-    padding-top: 120px; /* Space for the fixed Home button */
+    padding-top: 80px; /* Space for the fixed Home button */
     padding-bottom: 50px;
 }
 
 .projects-grid {
     display: grid;
-    /* SENIOR NOTE: repeat(3, 1fr) ensures exactly 3 columns. 
-       Cards will only grow as wide as 1/3 of the container. */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    /* Forces exactly 2 equal columns */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px;
     width: 95%;
-    max-width: 1600px;
-    align-items: start; /* Prevents cards from stretching vertically to match neighbors */
+    max-width: 1160px; /* Gives wide cards enough room */
+    max-height: 500px;
+    margin: 0 auto;
+    align-items: stretch; /* Keeps both cards the same height */
 }
 
 /* Responsiveness: Switch to 1 column on tablets/phones */

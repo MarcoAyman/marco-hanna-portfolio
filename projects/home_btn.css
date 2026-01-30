@@ -1,6 +1,6 @@
 .home-nav {
     position: fixed;
-    top: 20px;
+    top: 30px;
     right: 40px;
     z-index: 1000;
 }
@@ -15,6 +15,7 @@
     font-weight: 900;
     box-shadow: 0 0 15px #00ffff;
     transition: 0.3s;
+    margin-top: 20px;
 }
 
 .home-btn:hover {
