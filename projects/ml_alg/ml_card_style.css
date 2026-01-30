@@ -78,13 +78,16 @@ color: #00ffff;
     position: absolute;
     background: rgba(13, 33, 64, 0.8); /* Dark glassy box */
     backdrop-filter: blur(5px);
-    padding: 15px;
+    padding: 0;
     border-radius: 10px;
-    width: 85%;
+    width: 70%;
+    height: 75%;
     color: rgb(255, 255, 255);
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
+    opacity: 1;
+    overflow: hidden;
 }
 
 /* Tech Stack Pills (Glassy) */

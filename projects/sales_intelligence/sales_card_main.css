@@ -15,12 +15,12 @@
     padding: 10px 25px 25px 25px;    
     box-sizing: border-box;
     transition: transform 0.4s ease;
-
 }
 
 #project-2 .card-title {
     color: #00ffff;
-    text-shadow: 0 0 10px #00ffff;    font-weight: bold;
+    text-shadow: 0 0 10px #00ffff;    
+    font-weight: bold;
     font-size: 2.2rem;
     margin-bottom: 5px;
     margin-top: 5px;
@@ -47,25 +47,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin: 0%;
+    gap: 5px;
+    margin: 0;
+    padding: 0;
 }
 
 #project-2 .center-img {
-    width: 100%;
+    width: 90%;
+    height: 90%;
     max-width: 300px;
     height: auto;
     border-radius: 10px;
+    opacity: 0.9;
+    margin: 0;
 }
 
 #project-2 .center-img:first-child {
-    height: 190px; /* The base.png size */
+    height: 65%; /* The base.png size */
 }
 
 
 #project-2 .project-description {
     color: white;
-    margin: 15px 0;
+    margin: 0 0 10px 0;
     font-size: 0.8rem;
 }
 

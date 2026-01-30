@@ -1,0 +1,106 @@
+#project-4.project-card {
+    width: 95%;
+    height: 95%;
+    background: radial-gradient(circle, rgba(43, 75, 124, 0.25) 0%, rgba(26, 42, 68, 0.2) 100%);
+    backdrop-filter: blur(12px);
+    border: 5px solid #00ffff;
+    border-radius: 40px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This handles the overall vertical distribution */
+    box-sizing: border-box;
+}
+
+/* Group 1: Top Content */
+.card-main-body-sql {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Precise control of space between header and images */
+}
+
+.header-group-sql {
+    text-align: left;
+}
+
+.card-title-sql {
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;    
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.card-subtitle-sql {
+    color: #f9f9f9;
+    font-size: 0.95rem;
+    font-weight: bold;
+    margin: 5px 0 0 0;
+}
+
+.dual-image-view-sql {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+margin: auto 0;}
+
+.center-img-sql {
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+    opacity: 0.9;
+}
+
+/* Group 2: Bottom Content */
+.card-footer-sql {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Control space between tech pills and buttons */
+}
+
+.tech-stack-sql {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.tech-pill-sql {
+    border: 2px solid #00ffff;
+    background: rgba(43, 75, 124, 0.4);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.action-row-sql {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn-sql {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.start-btn {
+    background: linear-gradient(to bottom, #d32f2f, #b71c1c); /* Red gradient */
+    border: 2px solid #ff5252;
+}
+
+.browse-btn {
+    background: linear-gradient(135deg, #4b0082, #240b36); /* Purple/Dark gradient */
+    border: 2px solid #00ffff;
+}
+
+.btn-sql:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}

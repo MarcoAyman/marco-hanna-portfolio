@@ -21,6 +21,13 @@ const projects = [
         htmlFile: 'ml_card_index.html',
         cssFile: 'ml_card_style.css',
         jsFile: 'ml_card_anim.js'
+    },
+    {
+        id: 'project-4',
+        folder: 'sql', // The new folder
+        htmlFile: 'sql_index.html',
+        cssFile: 'sql_style.css',
+        jsFile: 'sql_script.js'
     }
     // Add future projects here: { id: 'project-2', folder: 'Robot_card', ... }
 ];
