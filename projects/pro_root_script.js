@@ -34,7 +34,7 @@ const projects = [
         folder: 'DocuSense', // The new folder
         htmlFile: 'dsai.html',
         cssFile: 'dsai.css',
-        jsFile: ''
+        jsFile: 'dsai.js'
     }
     // Add future projects here: { id: 'project-2', folder: 'Robot_card', ... }
 ];

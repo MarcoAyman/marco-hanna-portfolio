@@ -6,14 +6,28 @@
     /* Thick Cyan Border */
     border: 8px solid #00ffff; 
     border-radius: 60px; /* Highly rounded corners per screenshot */
-    background: #1a3a5f; /* Deep blue base */
-    padding: 5px 5px;    
+    background: radial-gradient(circle, rgba(26, 58, 95, 0.6) 0%, rgba(10, 20, 35, 0.4) 100%);    
+    padding: 5px 5px;  
+    backdrop-filter: blur(15px);  
     display: flex;
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
     gap: 0px;
+    will-change: transform; /* Optimizes performance for the tilt */
+    transition: transform 0.5s ease, box-shadow 0.3s ease;
+}
+/* A pulsing neon effect for the border */
+@keyframes borderPulse {
+    0% { border-color: #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
+    50% { border-color: #008888; box-shadow: 0 0 30px rgba(0, 255, 255, 0.6); }
+    100% { border-color: #00ffff; box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); }
+}
+
+#project-dsai.project-card:hover {
+    animation: borderPulse 2s infinite ease-in-out;
+    cursor: pointer;
 }
 
 /* Titles */
@@ -32,10 +46,12 @@
 
 .card-subtitle-dsai {
     color: #ffffff;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-top: 5px;
     white-space: nowrap; /* Keeps it on one line */
     margin: 2px 0 10px 0; /* Very small top margin, slightly more bottom */
+        font-weight: bold;
+
 }
 
 /* Image Styling */
@@ -44,6 +60,8 @@
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
+    opacity: 0.7; /* Scale of 0 to 1 (0.7 = 70% visible) */
+    transition: opacity 0.3s ease; /* Optional: makes it glow on hover */
 }
 
 .center-img-dsai {
@@ -52,7 +70,10 @@
     height: auto;
     border-radius: 10px;
 }
-
+/* Optional: Make it pop when you hover over the card */
+#project-dsai:hover .center-img-dsai {
+    opacity: 1;
+}
 /* Tech Stack & Button Grid */
 .tech-stack-dsai {
     display: flex;
@@ -102,7 +123,13 @@
     transform: scale(1.05);
     filter: brightness(1.2);
 }
-
+/* Shine effect for the pills on hover */
+.tech-pill-dsai:hover {
+    background: #00ffff !important;
+    color: #1a3a5f !important;
+    transform: scale(1.1) translateY(-3px) !important;
+    box-shadow: 0 0 15px #00ffff;
+}
 /* Mobile scaling to prevent text "explosion" */
 @media (max-width: 768px) {
     #project-dsai.project-card {
