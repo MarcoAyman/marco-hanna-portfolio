@@ -1,0 +1,114 @@
+/* The Main Rounded Rectangle Container */
+#project-dsai.project-card {
+    width: 95%;
+    max-width: 900px;
+    margin: 20px auto;
+    /* Thick Cyan Border */
+    border: 8px solid #00ffff; 
+    border-radius: 60px; /* Highly rounded corners per screenshot */
+    background: #1a3a5f; /* Deep blue base */
+    padding: 5px 5px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    gap: 0px;
+}
+
+/* Titles */
+.header-group-dsai {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.card-title-dsai {
+    color: #00ffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.card-subtitle-dsai {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-top: 5px;
+    white-space: nowrap; /* Keeps it on one line */
+    margin: 2px 0 10px 0; /* Very small top margin, slightly more bottom */
+}
+
+/* Image Styling */
+.image-container-dsai {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.center-img-dsai {
+    width: 100%;
+    max-width: 750px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Tech Stack & Button Grid */
+.tech-stack-dsai {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+}
+
+.tech-pill-dsai, .github-repo-btn {
+    border: 3px solid #00ffff;
+    border-radius: 15px;
+    padding: 4px 8px;
+    font-weight: bold;
+    color: white;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-width: auto;
+}
+
+.tech-pill-dsai {
+    background: #243b55; /* Dark blue background for pills */
+}
+
+/* The Dark Red Github Button */
+.github-repo-btn {
+    text-decoration: none;
+    /* Adjust these two lines */
+    padding: 4px 12px;      /* Tighten the top/bottom space */
+    min-width: auto;       /* Allow the box to shrink to the text size */
+    
+    /* Keep your existing style */
+    background: radial-gradient(circle, #a01a1a 0%, #600000 100%);
+    border: 3px solid #00ffff;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.github-repo-btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Mobile scaling to prevent text "explosion" */
+@media (max-width: 768px) {
+    #project-dsai.project-card {
+        padding: 20px;
+        border-width: 5px;
+    }
+    .card-title-dsai { font-size: 1.8rem; }
+    .card-subtitle-dsai { white-space: normal; text-align: center; }
+}

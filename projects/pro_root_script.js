@@ -28,6 +28,13 @@ const projects = [
         htmlFile: 'sql_index.html',
         cssFile: 'sql_style.css',
         jsFile: 'sql_script.js'
+    },
+    {
+        id: 'project-5',
+        folder: 'DocuSense', // The new folder
+        htmlFile: 'dsai.html',
+        cssFile: 'dsai.css',
+        jsFile: ''
     }
     // Add future projects here: { id: 'project-2', folder: 'Robot_card', ... }
 ];
